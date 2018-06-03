@@ -2,7 +2,7 @@ FROM node:8.7.0
 
 RUN apt-get update && apt-get install -y graphviz
 
-RUN npm install --quiet --no-progress --global surya
+RUN npm install --quiet --no-progress --global surya@0.2.2
 
 COPY extract-function-names-of-contract.js /app/extract-function-names-of-contract.js
 COPY png-to-dataurl.js /app/png-to-dataurl.js
