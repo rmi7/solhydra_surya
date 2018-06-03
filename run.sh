@@ -29,6 +29,10 @@ do
   surya parse $filepath > /app/output/parse/$filename
   node /app/parse-remove-other-contracts.js /app/output/parse/$filename $contractname
 
+  # inheritance
+  surya inheritance $filepath | dot -Tpng | base64 > /app/output/inheritance/$filename
+  node /app/png-to-dataurl.js /app/output/inheritance/$filename
+
   # ftrace
   functionnames=`node /app/extract-function-names-of-contract.js $filename`
 
